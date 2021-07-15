@@ -27,7 +27,7 @@ Route::get('/data-handle/form',[\App\Http\Controllers\DataHandleController::clas
 Route::get('/customer/register', [\App\Http\Controllers\CustomerController::class,'register']);
 Route::post('/customer/register', [\App\Http\Controllers\CustomerController::class,'processRegister']);
 
-
-
-
+Route::get('',[\App\Http\Controllers\LayoutController::class,'masterLayout']);
+Route::get('/form',[\App\Http\Controllers\LayoutController::class,'create']);
+Route::get('/list',[\App\Http\Controllers\LayoutController::class,'list']);
 
