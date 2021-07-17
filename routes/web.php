@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\DataHandleController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\HelloController;
+use App\Http\Controllers\LayoutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,19 +20,30 @@ use Illuminate\Support\Facades\Route;
 
 
 //phương thức + đường dẫn + callback function
-Route::get('/user/register', [\App\Http\Controllers\HelloController::class,'register']);
-Route::post('/user/register', [\App\Http\Controllers\HelloController::class,'processRegister']);
+Route::get('/user/register', [HelloController::class,'register']);
+Route::post('/user/register', [HelloController::class,'processRegister']);
 
-Route::get('/data-handle/{id}/path',[\App\Http\Controllers\DataHandleController::class,'handlePathVariable']);
-Route::get('/data-handle/query-string',[\App\Http\Controllers\DataHandleController::class,'handleQueryString']);
-Route::get('/data-handle/form',[\App\Http\Controllers\DataHandleController::class,'returnForm']);
-Route::get('/data-handle/form',[\App\Http\Controllers\DataHandleController::class,'processForm']);
+Route::get('/data-handle/{id}/path',[DataHandleController::class,'handlePathVariable']);
+Route::get('/data-handle/query-string',[DataHandleController::class,'handleQueryString']);
+Route::get('/data-handle/form',[DataHandleController::class,'returnForm']);
+Route::get('/data-handle/form',[DataHandleController::class,'processForm']);
 
 
-Route::get('/customer/register', [\App\Http\Controllers\CustomerController::class,'register']);
-Route::post('/customer/register', [\App\Http\Controllers\CustomerController::class,'processRegister']);
+Route::get('/customer/register', [CustomerController::class,'register']);
+Route::post('/customer/register', [CustomerController::class,'processRegister']);
 
-Route::get('',[\App\Http\Controllers\LayoutController::class,'masterLayout']);
-Route::get('/form',[\App\Http\Controllers\LayoutController::class,'create']);
-Route::get('/list',[\App\Http\Controllers\LayoutController::class,'list']);
+Route::get('',[LayoutController::class,'masterLayout']);
+Route::get('/form',[LayoutController::class,'create']);
+Route::get('/list',[LayoutController::class,'list']);
+
+Route::get('/Events/create',[EventController::class,'create']);
+Route::post('/Events/create',[EventController::class,'store']);
+Route::get('/Events/list',[EventController::class,'index']);
+Route::get('/Events/edit/{id}',[EventController::class,'update']);
+Route::post('/Events/edit/{id}',[EventController::class,'save']);
+Route::delete('/Events/delete/{id}',[EventController::class,'delete']);
+
+
+
+
 

@@ -8,14 +8,22 @@
             <nav class="sidebar-nav left-sidebar-menu-pro">
                 <ul class="metismenu" id="menu1">
                     <li>
-                        <a class="has-arrow" href="mailbox.html" aria-expanded="false"><span class="educate-icon educate-data-table icon-wrap"></span> <span class="mini-click-non">Data Tables</span></a>
+                        <a class="has-arrow" href="mailbox.html" aria-expanded="false"><span> <i class="fas fa-user"></i></span> <span class="mini-click-non">User Manager</span></a>
                         <ul class="submenu-angle" aria-expanded="false">
                             <li><a title="Peity Charts" href="static-table.html"><span class="mini-sub-pro">Static Table</span></a></li>
                             <li><a title="Data Table" href="data-table.html"><span class="mini-sub-pro">Data Table</span></a></li>
                         </ul>
                     </li>
                     <li>
-                        <a class="has-arrow" href="mailbox.html" aria-expanded="false"><span class="educate-icon educate-form icon-wrap"></span> <span class="mini-click-non">Forms Elements</span></a>
+                        <a class="has-arrow" href="mailbox.html" aria-expanded="false"><span> <i class="fab fa-product-hunt"></i> </span><span class="mini-click-non">Product Manager</span></a>
+                        <ul class="submenu-angle form-mini-nb-dp" aria-expanded="false">
+                            <li><a title="Basic Form Elements" href="basic-form-element.html"><span class="mini-sub-pro">Bc Form Elements</span></a></li>
+                            <li><a title="Advance Form Elements" href="advance-form-element.html"><span class="mini-sub-pro">Ad Form Elements</span></a></li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow" href="mailbox.html" aria-expanded="false"><span><i class="fas fa-calendar-week"></i></span> <span class="mini-click-non">Events Manager</span></a>
                         <ul class="submenu-angle form-mini-nb-dp" aria-expanded="false">
                             <li><a title="Basic Form Elements" href="basic-form-element.html"><span class="mini-sub-pro">Bc Form Elements</span></a></li>
                             <li><a title="Advance Form Elements" href="advance-form-element.html"><span class="mini-sub-pro">Ad Form Elements</span></a></li>

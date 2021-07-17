@@ -68,6 +68,7 @@
        ============================================ -->
     <link rel="stylesheet" href="/access/css/editor/select2.css">
     <link rel="stylesheet" href="/access/css/editor/datetimepicker.css">
+    <link rel="stylesheet" href="/access/css/datapicker/datepicker3.css">
     <link rel="stylesheet" href="/access/css/editor/bootstrap-editable.css">
     <link rel="stylesheet" href="/access/css/editor/x-editor-style.css">
     <!-- forms CSS

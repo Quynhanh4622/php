@@ -446,7 +446,7 @@ the specific language governing permissions and limitations under the Apache Lic
                     dataType: options.dataType,
                     data: data,
                     success: function (data) {
-                        // TODO - replace query.page with query so users have access to term, page, etc.
+                        // TODO - replace query.page with query so Events have access to term, page, etc.
                         var results = options.results(data, query.page);
                         query.callback(results);
                     }
@@ -3173,7 +3173,7 @@ the specific language governing permissions and limitations under the Apache Lic
         return (value === undefined) ? this : value;
     };
 
-    // plugin defaults, accessible to users
+    // plugin defaults, accessible to Events
     $.fn.select2.defaults = {
         width: "copy",
         loadMorePadding: 0,

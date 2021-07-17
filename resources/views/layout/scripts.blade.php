@@ -75,6 +75,10 @@
 <script src="/access/js/editable/bootstrap-datetimepicker.js"></script>
 <script src="/access/js/editable/bootstrap-editable.js"></script>
 <script src="/access/js/editable/xediable-active.js"></script>
+<!-- datapicker JS
+		============================================ -->
+<script src="/access/js/datapicker/bootstrap-datepicker.js"></script>
+<script src="/access/js/datapicker/datepicker-active.js"></script>
 <!-- Chart JS
 		============================================ -->
 <script src="/access/js/chart/jquery.peity.min.js"></script>
