@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Http\Controllers\CustomerController;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,6 +14,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this ->call([
+           ProductSeeder::class,
+           CustomerSeeder::class,
+           OrderSeeder::class,
+           OrderDetailSeeder::class,
+        ]);
         // \App\Models\User::factory(10)->create();
     }
 }
