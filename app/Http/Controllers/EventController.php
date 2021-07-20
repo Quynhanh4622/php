@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EventRequest;
 use App\Models\Event;
 use Illuminate\Http\Request;
 
@@ -12,11 +13,25 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $events = Event::all();
-        return view('Events/list',[
-            'list'=>$events,
+        $queryBuilder = Event::query();
+        $search = $request->query('search');
+        $status = $request->query('status');
+        if($search && strlen($search) > 0){
+            $queryBuilder = $queryBuilder->where('eventName','like','%'.$search.'%')
+                ->orWhere('bandNames','like','%'.$search.'%')
+                ->orWhere('portfolio','like','%'.$search.'%');
+        }
+        if($status){
+            $queryBuilder = $queryBuilder->where('status',$status);
+        }
+        $events = $queryBuilder->paginate(10)->appends(['search' => $search, 'status' => $status]);
+
+        return view('Events/list',
+        [
+            'list' => $events,
+            'status' => $status
         ]);
     }
 
@@ -27,7 +42,9 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('Events/form');
+        return view('Events/form',[
+            'current' => null
+        ]);
     }
 
     /**
@@ -36,7 +53,7 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EventRequest $request)
     {
        $events = new Event();
         /*$events->eventName = $request->get('eventName');
@@ -46,7 +63,7 @@ class EventController extends Controller
         $events->portfolio = $request->get('portfolio');
         $events->ticketPrice = $request->get('ticketPrice');
         $events->status = $request->get('status');*/
-        $events->fill($request->all());
+        $events->fill($request->validated());
         $events->save();
         return redirect('Events/list');
         //
@@ -70,7 +87,7 @@ class EventController extends Controller
         $detailEvent->status = $request->get('status');*/
         $detailEvent->update($request->all());
         $detailEvent->save();
-        return "Edit success";
+        return redirect('Events/list');
     }
 
     /**
@@ -95,7 +112,7 @@ class EventController extends Controller
     public function update($id)
     {
         $currentEvent = Event::find($id);
-        return view('events/edit',[
+        return view('Events/edit',[
             'current' => $currentEvent
         ]);
     }

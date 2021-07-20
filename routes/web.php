@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DataHandleController;
+use App\Http\Controllers\DemoValidateController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\HelloController;
 use App\Http\Controllers\LayoutController;
@@ -44,6 +45,6 @@ Route::post('/Events/edit/{id}',[EventController::class,'save']);
 Route::delete('/Events/delete/{id}',[EventController::class,'delete']);
 
 
-
-
+Route::get('/demo/validate/create',[DemoValidateController::class,'create']);
+Route::post('/demo/validate/store',[DemoValidateController::class,'store']);
 
